@@ -1,0 +1,6 @@
+__pycache__/
+
+# Ignore the virtual environment
+venv/
+*.egg-info/
+lib/

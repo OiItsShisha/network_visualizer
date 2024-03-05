@@ -1,0 +1,16 @@
+[project]
+name = "network_visualizer"
+authors = [
+    {name = "Blake Johns", email = "johns.blake921@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "networkx==3.2.1",
+    "pyvis==0.3.2",
+    "matplotlib==3.8.3",
+    "pyshark==0.6"
+]
+
+dynamic = ["version"]
