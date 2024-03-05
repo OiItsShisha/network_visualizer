@@ -1,7 +1,22 @@
-import pyshark
+""" This module is for reading in the pcap file """
 
-def read_cap() -> None:
-    cap = pyshark.FileCapture("./home_wifi.pcapng")
+import pyshark
+from pathlib import Path
+"""
+TODO:
+    Once static file suppport is worked out, need to implement live traffic support
+"""
+
+def read_cap(infile: str) -> None:
+    """ Method to read in the capture file
+    
+    Args:
+        None
+
+    Returns:
+        None
+    """
+    cap = pyshark.FileCapture(Path(infile))
     nx_data = {
         "comms_tuples": [],
         "protocol_stack": []
@@ -11,7 +26,3 @@ def read_cap() -> None:
             (packet.eth.src, packet.eth.dst))
         nx_data["protocol_stack"].append(packet.frame_info.protocols)
     return nx_data
-
-if __name__ == "__main__":
-    dict_ = read_cap()
-    print(dict_)
