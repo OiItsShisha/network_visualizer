@@ -2,6 +2,7 @@
 
 import pyshark
 from pathlib import Path
+import pandas as pd
 """
 TODO:
     Once static file suppport is worked out, need to implement live traffic support
@@ -25,4 +26,5 @@ def read_cap(infile: str) -> None:
         nx_data["comms_tuples"].append(
             (packet.eth.src, packet.eth.dst))
         nx_data["protocol_stack"].append(packet.frame_info.protocols)
+    df = pd.DataFrame(nx_data)
     return nx_data
